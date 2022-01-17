@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="ssoId">SsoId</label>
+    <input type="text" th:field="*{ssoId}" id="ssoId" placeholder="SsoId">
+    <br/>
+    <label for="password">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="Password">
+    <br/>
+    <label for="firstName">FirstName</label>
+    <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">
+    <br/>
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+    <br/>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <br/>
+
+    <div class="text-field text-field_floating-3">
+        <label for="roles">Select roles</label>
+        <select id="roles" name="roles" multiple="multiple">
+            <option th:each="role : ${roles}"
+                    th:value="${role.getRole()}"
+                    th:text="${role.getRole()}">
+            </option>
+        </select>
+    </div>
+
+    <input type="submit" value="Update">
+</form>
+
+</div>
+<p><a href="/logout">Logout</a></p>
+</div>
+</body>
+</html>'

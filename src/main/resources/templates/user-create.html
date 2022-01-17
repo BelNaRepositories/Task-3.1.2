@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user-create</title>
+</head>
+<body>
+<form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
+    <label for="ssoId">SsoId</label>
+    <input type="text" th:field="*{ssoId}" id="ssoId" placeholder="SsoId">
+    <label for="password">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="Password">
+    <label for="firstName">FirstName</label>
+    <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">
+    <label for="lastName">Last name</label>
+    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+
+    <div class="text-field text-field_floating-3">
+        <label for="roles">Select roles</label>
+        <select id="roles" name="roles" multiple="multiple">
+            <option th:each="role : ${roles}"
+                    th:value="${role.getRole()}"
+                    th:text="${role.getRole()}">
+            </option>
+        </select>
+    </div>
+
+    <input type="submit" value="Create">
+</form>
+</div>
+<p><a href="/logout">Logout</a></p>
+</div>
+</body>
+</html>
